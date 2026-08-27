@@ -1,0 +1,13 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - src
+
+    level: 5
+
+    ignoreErrors:
+        -
+            message: '#Property Lwekuiper\\StatamicZapier\\ServiceProvider::\$vite#'
+            path: src/ServiceProvider.php

@@ -1,0 +1,58 @@
+{
+    "name": "lwekuiper/statamic-zapier",
+    "description": "Send Statamic form submissions to Zapier webhooks.",
+    "license": "proprietary",
+    "type": "statamic-addon",
+    "require": {
+        "php": "^8.3",
+        "statamic/cms": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0 || ^11.0",
+        "laravel/pint": "^1.30",
+        "larastan/larastan": "^3.10",
+        "pestphp/pest": "^4.7"
+    },
+    "keywords": ["statamic", "statamic-addon", "zapier", "webhooks", "forms"],
+    "homepage": "https://github.com/lwekuiper/statamic-zapier",
+    "support": {
+        "issues": "https://github.com/lwekuiper/statamic-zapier/issues",
+        "source": "https://github.com/lwekuiper/statamic-zapier"
+    },
+    "authors": [
+        {
+            "name": "Laurens Kuiper",
+            "email": "l@urens.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Lwekuiper\\StatamicZapier\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Lwekuiper\\StatamicZapier\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Zapier",
+            "description": "Send form submissions to Zapier webhooks",
+            "editions": [
+                "free",
+                "pro"
+            ]
+        },
+        "laravel": {
+            "providers": [
+                "Lwekuiper\\StatamicZapier\\ServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
