@@ -75,7 +75,7 @@ Every field from the form submission is included at the top level, using the fie
 | `_submission_id` | string | `"1755600000.1234"` |
 | `_submitted_at` | string (ISO 8601) | `"2026-08-19T14:30:00+02:00"` |
 
-Metadata keys are prefixed with an underscore so they can't collide with a form field handle. Array-valued fields (for example a checkboxes field) are sent as JSON arrays, not flattened to a string.
+Metadata keys are prefixed with an underscore so they can't collide with a form field handle. Array-valued fields (for example a checkboxes field) are sent as JSON arrays, not flattened to a string. A file upload field is sent as the asset's path, not a URL.
 
 ## Multi-Site Support (Pro)
 
@@ -116,6 +116,8 @@ In practice this means a user who can configure webhooks could point one at an i
 The mitigating factor is that configuring webhooks already requires the `configure forms` permission, the same trusted-role permission that governs a form's other settings, including its email notifications. Grant `configure forms` only to users you trust with that capability, exactly as you would for any other form configuration setting.
 
 There is no delivery retry logic and no delivery-log screen in the control panel. Zapier's own task history (or your endpoint's own logs) is the place to check whether a specific delivery arrived; the Laravel log only records failures, not successful deliveries.
+
+A file upload field is sent as the asset's path, not a URL. Zapier cannot fetch a file from a path, so an attachment cannot be forwarded on to another service.
 
 ## Troubleshooting
 
